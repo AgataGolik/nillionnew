@@ -39,7 +39,7 @@ for ((i=1; i<=NUM_ACCUSERS; i++)); do
     echo ""
     echo "Creating directory and running Docker container to initialize accuser $i..."
     mkdir -p "$ACCUSER_DIR" && \
-    sudo docker run -v "$(pwd)/$ACCUSER_DIR:/var/tmp" nillion/retailtoken-accuser:latest initialise
+    sudo docker run -v "$(pwd)/$ACCUSER_DIR:/var/tmp" nillion/retailtoken-accuser:v1.0.0 initialise
 
     SECRET_FILE="$ACCUSER_DIR/credentials.json"
     if [ -f "$SECRET_FILE" ]; then
